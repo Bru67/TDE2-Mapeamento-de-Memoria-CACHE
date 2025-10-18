@@ -1,28 +1,28 @@
 # TRABALHO DE PERFORMANCE DE SISTEMAS CIBERFISICOS
 # Grupo 2 do TDE 2
 
-page_faults = 0 #contador de faltas de pagina (page faults)
+falta_paginas = 0 #contador de faltas de pagina
 
 # Código para o algorítmo FIFO
 def alg_fifo(paginas, quadros):
-    page_faults = 0 # reinicia a contagem de page faults
+    falta_paginas = 0 # reinicia a contagem de falta de páginas
     memoria = []
     for p in paginas:
         if p not in memoria:
             if len(memoria) < quadros: # se o número de itens na lista "memoria" for menor q o número de quadros, ele adiciona
                 memoria.append(p)
-                page_faults += 1
+                falta_paginas += 1
             else:
                 memoria.pop(0)  # remove o mais antigo
                 memoria.append(p)
-                page_faults += 1
+                falta_paginas += 1
         # print(memoria)
-        string = f"Memória final FIFO: {memoria}\nTotal Page Faults: {page_faults}\n"
+        string = f"Memória final FIFO: {memoria}\nTotal Falta de Páginas: {falta_paginas}\n"
     return string
 
 # Código para algorítimo LRU
 def alg_lru(paginas, quadros):
-    page_faults = 0 # reinicia a contagem de page faults
+    falta_paginas = 0 # reinicia a contagem de falta de páginas
     memoria = []
     for p in paginas:
         if p in memoria:
@@ -34,14 +34,14 @@ def alg_lru(paginas, quadros):
                 # sempre q der o .pop vai remover o utilizado menos recentemente
                 memoria.pop(0)
             memoria.append(p)
-            page_faults += 1
+            falta_paginas += 1
         # print(memoria)
-        string = f"Memória final LRU: {memoria}\nTotal Page Faults: {page_faults}\n"
+        string = f"Memória final LRU: {memoria}\nTotal Falta de Páginas: {falta_paginas}\n"
     return string
 
 # Código do algorítmo MRU
 def alg_mru(paginas, quadros):
-    page_faults = 0 # reinicia a contagem de page faults
+    falta_paginas = 0 # reinicia a contagem de falta de páginas
     memoria = []
     for p in paginas:
         if p in memoria:
@@ -50,13 +50,13 @@ def alg_mru(paginas, quadros):
             memoria.append(p)
         elif len(memoria) < quadros:
             memoria.append(p)
-            page_faults += 1
+            falta_paginas += 1
         else:
             memoria.pop(-1)  # remove o mais recente
             memoria.append(p)
-            page_faults += 1
+            falta_paginas += 1
         # print(memoria)
-        string = f"Memória final MRU: {memoria}\nTotal Page Faults: {page_faults}\n"
+        string = f"Memória final MRU: {memoria}\nTotal Falta de Páginas: {falta_paginas}\n"
     return string
 
 

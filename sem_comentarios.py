@@ -1,38 +1,38 @@
-page_faults = 0
+falta_paginas = 0
 
 def alg_fifo(paginas, quadros):
-    page_faults = 0 
+    falta_paginas = 0 
     memoria = []
     for p in paginas:
         if p not in memoria:
             if len(memoria) < quadros:
                 memoria.append(p)
-                page_faults += 1
+                falta_paginas += 1
             else:
                 memoria.pop(0) 
                 memoria.append(p)
-                page_faults += 1
-        string = f"Memória final FIFO: {memoria}\nTotal Page Faults: {page_faults}\n"
+                falta_paginas += 1
+        string = f"Memória final FIFO: {memoria}\nTotal Falta de Páginas: {falta_paginas}\n"
     return string
 
 
 def alg_lru(paginas, quadros):
-    page_faults = 0 
+    falta_paginas = 0 
     memoria = []
     for p in paginas:
-        if p in memoria:
+        if p in memoria:          
+            memoria.remove(p)
             memoria.append(p)
         else:
-            if len(memoria) >= quadros:
+            if len(memoria) >= quadros:                
                 memoria.pop(0)
             memoria.append(p)
-            page_faults += 1
-        string = f"Memória final LRU: {memoria}\nTotal Page Faults: {page_faults}\n"
+            falta_paginas += 1
+        string = f"Memória final LRU: {memoria}\nTotal Falta de Páginas: {falta_paginas}\n"
     return string
 
-
 def alg_mru(paginas, quadros):
-    page_faults = 0 
+    falta_paginas = 0 
     memoria = []
     for p in paginas:
         if p in memoria:
@@ -40,12 +40,12 @@ def alg_mru(paginas, quadros):
             memoria.append(p)
         elif len(memoria) < quadros:
             memoria.append(p)
-            page_faults += 1
+            falta_paginas += 1
         else:
             memoria.pop(-1)  
             memoria.append(p)
-            page_faults += 1
-        string = f"Memória final MRU: {memoria}\nTotal Page Faults: {page_faults}\n"
+            falta_paginas += 1
+        string = f"Memória final MRU: {memoria}\nTotal Falta de Páginas: {falta_paginas}\n"
     return string
 
 

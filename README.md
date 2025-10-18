@@ -46,9 +46,27 @@ Print do Resultado no Terminal:
 - Qual quadro na memória possuirá a página 7 ?
 - Qual quadro na memória possuirá a página 11?
 - Qual quadro na memória possuirá a página 11?
-- Qual a melhor politica de substituição e por quê?
+- Qual foi a melhor política de substituição para estes casos e por quê?
 
+Para responder as perguntas devemos observar os resultados finais. Pudemos observar que para as 3 primeiras perguntas, a página desejada (7, 11 e 11 respectamente) estava localizada sempre no **8° quadro** em todas as simulações.
 
+Agora para analisar qual algoritmo possuiu o melhor desempenho nestes casos (sequências) devemos observar o número de faltas de página que cada algoritmo possuiu nos testes, ou seja, verificar quando foi preciso inserir uma nova página dentro da memória.
+
+Analisando o contador de **Faltas de Páginas** conseguimos analisar qual algoritmo foi melhor para cada sequência:
+
+- **Sequência A**: algoritmo *MRU* com *11 faltas*;
+- **Sequência B**: empate de *14 faltas* entre os algoritmos *FIFO* e *MRU*.
+- **Sequência C**: algoritmo *LRU* com *11 faltas*.
+
+Agora fazendo uma analise totalizando quantas faltas cada algoritmo teve obtemos:
+
+- **FIFO**: 13 + 14 + 13 totalizando *40 faltas de página*;
+- **LRU**: 12 + 16 + 11 totalizando *39 faltas de página*;
+- **MRU**: 11 + 14 + 12 totalizandi *37 faltas de página*.
+
+## Conclusão
+
+Neste caso podemos concluir que na analise geral, o algoritmo **MRU** foi o mais eficiente pois obteve menos faltas de páginas, porém não necessáriamente ele será sempre o melhor caso, como foi mostrado na analise por sequência, apesar dele ter se mostrado melhor no quantitativo geral ele pode se demonstrar não tão eficiente quando outros algoritmos em diferentes cenários.
 
 ## Link do Vídeo:
 link do youtube aqui
