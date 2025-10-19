@@ -86,4 +86,4 @@ Agora fazendo uma analise totalizando quantas faltas cada algoritmo teve obtemos
 Neste caso podemos concluir que na analise geral, o algoritmo **MRU** foi o mais eficiente pois obteve menos faltas de páginas, porém não necessáriamente ele será sempre o melhor caso, como foi mostrado na analise individual por sequência, apesar dele ter se mostrado melhor no quantitativo geral ele pode se demonstrar não tão eficiente quando outros algoritmos em diferentes cenários.
 
 ## Link do Vídeo:
-- link do youtube aqui
+- [link do youtube](https://youtu.be/wPd2KJ8Rz0c)
